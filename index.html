@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 5 - Dasar Pemrograman JavaScript (Lab5Web)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Praktikum 5 — Dasar Pemrograman JavaScript</h1>
+            <p>Repository: Lab5Web | Manipulasi DOM, Event Handling, Fungsi, &amp; Validasi Form</p>
+        </header>
+
+        <!-- Latihan 1 & 2: Menampilkan Output, Alert, dan Prompt -->
+        <section class="card" id="section-latihan1-2">
+            <h2>Latihan 1 &amp; 2 — Menampilkan Output, Alert, dan Prompt</h2>
+            <p>Output teks pada elemen <code>#pesan</code>:</p>
+            <p id="pesan" class="output-box">Memuat pesan...</p>
+            <div style="margin-top: 12px;">
+                <button type="button" onclick="jalankanLatihan1()">Reset Latihan 1 (Hello World)</button>
+                <button type="button" onclick="jalankanLatihan2()">Uji Latihan 2 (Prompt Nama)</button>
+            </div>
+        </section>
+
+        <!-- Latihan 3, 4, 5: Function, Aritmetika, If-Else, dan Switch -->
+        <section class="card" id="section-latihan3-5">
+            <h2>Latihan 3, 4, &amp; 5 — Operasi Aritmetika, If–Else, dan Switch</h2>
+            <p>Latihan 3 otomatis mencetak hasil <code>operasiDasar(9, 4)</code> ke Console saat halaman dimuat. Gunakan tombol di bawah untuk menguji dialog interaktif:</p>
+            <div style="margin-top: 12px;">
+                <button type="button" onclick="operasiDasar(9, 4)">Latihan 3: operasiDasar(9, 4) (Cek Console)</button>
+                <button type="button" onclick="jalankanLatihan4()">Latihan 4: Cek Kelulusan (If–Else)</button>
+                <button type="button" onclick="jalankanLatihan5()">Latihan 5: Nama Bilangan 1–5 (Switch)</button>
+            </div>
+        </section>
+
+        <!-- Latihan 6: Form Bilangan Genap atau Ganjil -->
+        <section class="card" id="section-latihan6">
+            <h2>Latihan 6 — Form Bilangan Genap atau Ganjil</h2>
+            <div class="form-group">
+                <label for="bilangan">Masukkan bilangan bulat:</label>
+                <input type="number" id="bilangan" step="1" placeholder="Contoh: 14">
+                <button type="button" onclick="cekBilangan()">Periksa</button>
+            </div>
+            <p id="hasilBilangan" class="output-box">Silakan masukkan bilangan dan klik Periksa.</p>
+        </section>
+
+        <!-- Latihan 7: Mengubah Warna Halaman -->
+        <section class="card" id="section-latihan7">
+            <h2>Latihan 7 — Mengubah Warna Halaman</h2>
+            <p>Klik tombol berikut untuk mengubah warna latar belakang halaman:</p>
+            <div style="margin-top: 10px;">
+                <button type="button" onclick="ubahWarnaLatar('lightgreen')">Latar Hijau</button>
+                <button type="button" onclick="ubahWarnaLatar('white')">Latar Putih</button>
+                <button type="button" onclick="ubahWarnaLatar('lightyellow')">Latar Kuning</button>
+            </div>
+        </section>
+
+        <!-- Latihan 8 & Eksperimen 10: DOM dan Checkbox Menu Makanan -->
+        <section class="card" id="section-latihan8">
+            <h2>Latihan 8 — DOM dan Checkbox Menu Makanan (+ Eksperimen No. 10)</h2>
+            <h3>Daftar Menu Makanan</h3>
+            <div class="menu-list">
+                <label><input type="checkbox" class="menu" value="5000"> Ayam Goreng — Rp5.000</label><br>
+                <label><input type="checkbox" class="menu" value="500"> Tempe — Rp500</label><br>
+                <label><input type="checkbox" class="menu" value="2500"> Telur Dadar — Rp2.500</label><br>
+                <!-- Tambahan 2 menu dari Eksperimen Mandiri No. 10 -->
+                <label><input type="checkbox" class="menu" value="4000"> Nasi Putih — Rp4.000</label><br>
+                <label><input type="checkbox" class="menu" value="3000"> Es Teh Manis — Rp3.000</label><br>
+            </div>
+            <p class="output-box">Total: Rp<span id="total">0</span></p>
+        </section>
+
+        <!-- Bagian F: Mini Project — Kalkulator Nilai Mahasiswa -->
+        <section class="card" id="section-miniproject">
+            <h2>F. Mini Project — Kalkulator Nilai Mahasiswa</h2>
+            <p>Bobot penilaian: Tugas (30%), UTS (30%), dan UAS (40%). Rentang nilai valid: 0–100.</p>
+            <div class="grid-2" style="margin-top: 12px;">
+                <div>
+                    <div class="form-group">
+                        <label for="nilaiTugas" style="display:block;">Nilai Tugas (0–100):</label>
+                        <input type="number" id="nilaiTugas" min="0" max="100" placeholder="Contoh: 85">
+                    </div>
+                    <div class="form-group">
+                        <label for="nilaiUts" style="display:block;">Nilai UTS (0–100):</label>
+                        <input type="number" id="nilaiUts" min="0" max="100" placeholder="Contoh: 78">
+                    </div>
+                    <div class="form-group">
+                        <label for="nilaiUas" style="display:block;">Nilai UAS (0–100):</label>
+                        <input type="number" id="nilaiUas" min="0" max="100" placeholder="Contoh: 88">
+                    </div>
+                    <button type="button" onclick="prosesKalkulatorNilai()">Hitung Nilai Akhir</button>
+                </div>
+                <div>
+                    <div id="hasilKalkulator" class="output-box">
+                        <p><strong>Nilai Akhir:</strong> <span id="outNilaiAkhir">-</span></p>
+                        <p><strong>Predikat:</strong> <span id="outPredikat">-</span></p>
+                        <p><strong>Status:</strong> <span id="outStatus">-</span></p>
+                        <p id="pesanValidasiNilai" style="margin-top:6px;"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian G & H: Eksperimen Mandiri & Validasi Form -->
+        <section class="card" id="section-eksperimen">
+            <h2>G &amp; H. Eksperimen Mandiri &amp; Tugas Validasi Form</h2>
+
+            <!-- Eksperimen 1: Operasi Dasar dengan Prompt -->
+            <div style="margin-bottom: 18px;">
+                <h3>1. Operasi Aritmetika dari Input Prompt</h3>
+                <button type="button" onclick="operasiDasarPrompt()">Input 2 Bilangan via Prompt</button>
+                <p id="hasilAritmetikaPrompt" class="output-box">Hasil operasi dasar dari prompt akan tampil di sini dan di Console.</p>
+            </div>
+
+            <!-- Eksperimen 7: Tabel Perkalian 7 (1-10) -->
+            <div style="margin-bottom: 18px;">
+                <h3>7. Perulangan Tabel Perkalian Angka 7 (1 s.d. 10)</h3>
+                <ul id="tabelPerkalian7" class="perkalian-list"></ul>
+            </div>
+
+            <!-- Eksperimen 8: Function cekGenap(angka) -->
+            <div style="margin-bottom: 18px;">
+                <h3>8. Function <code>cekGenap(angka)</code> (Return Boolean)</h3>
+                <div class="form-group">
+                    <label for="inputCekGenap">Masukkan angka:</label>
+                    <input type="number" id="inputCekGenap" placeholder="Contoh: 12">
+                    <button type="button" onclick="ujiCekGenap()">Uji cekGenap()</button>
+                </div>
+                <p id="hasilBooleanGenap" class="output-box">Nilai kembalian boolean akan tampil di sini.</p>
+            </div>
+
+            <!-- Eksperimen 9 & Pertanyaan 7: Validasi Form Nama & Nilai (0-100) -->
+            <div style="margin-bottom: 18px;">
+                <h3>9 &amp; Tugas H.7. Validasi Form (Nama Tidak Kosong &amp; Nilai 0–100)</h3>
+                <div class="form-group">
+                    <label for="inputNamaValidasi">Nama Mahasiswa:</label>
+                    <input type="text" id="inputNamaValidasi" placeholder="Masukkan nama lengkap">
+                </div>
+                <div class="form-group">
+                    <label for="inputNilaiValidasi">Nilai Ujian (0–100):</label>
+                    <input type="number" id="inputNilaiValidasi" min="0" max="100" placeholder="0 - 100">
+                </div>
+                <button type="button" onclick="validasiFormMahasiswa()">Validasi &amp; Simpan</button>
+                <p id="hasilValidasiForm" class="output-box">Status validasi form akan tampil di sini.</p>
+            </div>
+
+            <!-- Eksperimen 11: Menyembunyikan / Menampilkan Elemen HTML -->
+            <div>
+                <h3>11. Menyembunyikan / Menampilkan Elemen HTML (Toggle)</h3>
+                <button type="button" class="secondary" onclick="toggleInfoTambahan()">Sembunyikan / Tampilkan Elemen</button>
+                <div id="elemenToggle" class="output-box" style="margin-top: 10px;">
+                    Ini adalah elemen HTML yang dapat disembunyikan atau ditampilkan kembali menggunakan JavaScript DOM (<code>style.display</code>).
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
